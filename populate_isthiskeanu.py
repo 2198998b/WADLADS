@@ -6,27 +6,38 @@ django.setup()
 from isthiskeanureeves.models import Category, Page, UserProfile, User
 
 def populate():
-    keanothim = [{"user": "2250052l","title": "Not Keanu"}]
-    keanew = [{"user": "2250052l","title": "Young Keanu"}]
-    topkeanu = [{"user": "2250052l","title": "Best Keanu"}]
-	
-    categories = {"topkeanu":{"title": "Top Keanu"},
-    "keanew":{"title": "Kea New"},
-    "keanothim":{"title": "Kea Not Him"}}
+    keanothim = [{"title": "Not Keanu","user": 1,"rating": -50,"image": "notkeanu.jpg" }]
+    keanew = [{"title": "New Keanu","user": 1,"rating": 0,"image": "newkeanu.jpg" }]
+    topkeanu = [{"title": "top Keanu","user": 1,"rating": 75,"image": "goodkeanu.jpg" }]
+    
+    categories = {"topkeanu":{"pages":topkeanu,"title": "Top Keanu"},
+    "keanew":{"pages":keanew,"title": "Kea New"},
+    "keanothim":{"pages":keanothim,"title": "Kea Not Him"}}
 
     for category, category_data in  categories.items():
-	    c = add_category(category_data["title"])#, category_data["img"])
-
-
-
+        c = add_category(category_data["title"])
+        for p in category_data["pages"]:
+            add_page(c, p["title"], p["user"],p["rating"],p["image"])
+#        for c in Category.objects.all():
+#            for p in Page.objects.filter(category=c):
+#                print("- {0} - {1}".format(str(c), str(p)))
+                
       
 #def add_category(name, image):
 def add_category(name):
     c = Category.objects.get_or_create(name=name)[0]#, img=image)[0]
-	#c = Category.objects.get_or_create(name=name, img=image)[0]
+    #c = Category.objects.get_or_create(name=name, img=image)[0]
     #c.rating = rating //OUT
     c.save()
     return c
+
+def add_page(category, title, user, rating=0,image = "null",):
+    p = Page.objects.get_or_create(category = category, title=title, user = user, rating = rating, image = image)[0]
+    p.user = user
+    p.rating = rating
+    p.image = image
+    p.save()
+    return p
 
 # Starts execution here
 if __name__ == '__main__':

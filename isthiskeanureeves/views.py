@@ -9,11 +9,11 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return index(request)
 def index(request):
-    context_dict = {	
-	'keanuimg1': "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Keanu_Reeves_2014.jpg/220px-Keanu_Reeves_2014.jpg" 
-	}
+    context_dict = {    
+    'keanuimg1': "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Keanu_Reeves_2014.jpg/220px-Keanu_Reeves_2014.jpg" 
+    }
     return render(request, 'isthiskeanureeves/index.html',context_dict)
-	
+    
 def keanew(request):
     return HttpResponse("This is the kea-new page")
 def about(request):
@@ -28,7 +28,7 @@ def login(request):
 def upload(request):
     return HttpResponse("This is the upload page")
 
-#this needs	to fully converted to work with the post <title> pages
+#this needs to fully converted to work with the post <title> pages
 #@login_required
 def post(request,post_title_slug):
     try:
@@ -145,3 +145,5 @@ def add_category(request):
         else:
             print(form.errors)
     return render(request, 'isthiskeanureeves/add_category.html', {'form': form})
+    
+
