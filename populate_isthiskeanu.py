@@ -16,8 +16,11 @@ def populate():
 
     for category, category_data in  categories.items():
         c = add_category(category_data["title"])
-        for p in category_data["pages"]:
-            add_page(c, p["title"], p["user"],p["rating"],p["image"])
+#        for p in category_data["pages"]:
+#            add_page(c, p["title"], p["user"],p["rating"],p["image"])
+
+#add this populate in^ (needs a user instance)
+
 #        for c in Category.objects.all():
 #            for p in Page.objects.filter(category=c):
 #                print("- {0} - {1}".format(str(c), str(p)))
