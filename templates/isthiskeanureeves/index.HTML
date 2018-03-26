@@ -1,4 +1,4 @@
-{% extends 'isthiskeanureeves/base.html' %}
+{% extends 'isthiskeanureeves/base_boot-strap.html' %}
 {% load staticfiles %}
 
     <head lang="en">
@@ -6,41 +6,62 @@
 		<title>
 		Is This Keanu Reeves?
 		</title>
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href= "{% static "css/style.css" %}">
+		<!-- 
+		<link rel="stylesheet" type="text/css" href= "{% static "css/style.css" %}"> CSS -->
+		{% block title %} - Top Keanu {% endblock %}
 	</head>
 	{% block body_block %}
 	<div id="all">
 	<div id="top">
-	<img src="{% static "images/isthiskeanureeves.jpg" %}"alt="is this keanu reeves (text)" /> 
-	<h1> Is This Keanu Reeves? </h1>
-	<div id="quote">
-	<h2> You take the red pill—you stay in Wonderland, and I show you how deep the rabbit hole goes.</h2>
-	</div>
-	
-	</div>
-	<div id="nav"> <a href="{% url 'index' %}">Top Keanu</a> &nbsp;
-				<a href="{% url 'keanew' %}">Kea-New</a> &nbsp;
-				<a href="{% url 'keanothim' %}">KEAN-NOT HIM</a> &nbsp;
-				<a href="{% url 'about' %}">About</a> &nbsp;
-			
-      <!-- --></div>
-	
-	    <div id="content">
-		<a href="{% url 'keanew' %}" >{{ page.title }}
+	<!-- <img src="{% static "images/isthiskeanureeves.jpg" %}"alt="is this keanu reeves (text)" /> 
+	<h1> Is This Keanu Reeves? </h1> -->
+
+
+		<div class="container">
+        <h1 class="display-3">Is This Keanu Reeves?</h1>
+        <p>These are the top Keanu Reeves images </p>
+		<h2> You take the red pill—you stay in Wonderland, and I show you how deep the rabbit hole goes.</h2>
+      </div>
+    
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg?resize=900:*" alt="Picture of a keanu" />
+
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+         <img src="https://hips.hearstapps.com/esquireuk.cdnds.net/17/06/4000x2250/hd-aspect-1486662851-shot-01-0041-fin6-flat.jpg?resize=330:*" alt="Picture of a keanu" />
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+           <img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/630x315/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F1572592%2Fimages%2Fn-KEANU-REEVES-628x314.jpg" alt="Picture of a keanu" />
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+	  
+	   <div class="row">
+	   <a href="{% url 'keanew' %}" >{{ page.title }}
+		
 		<img src="{{ MEDIA_URL}}bluekeanu.jpg" alt="Picture of a young keanu"/> </a>
 		
 		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
 		<!--<div class="gallery"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
 		</div>-->
 		<img src="{{ MEDIA_URL}}realkeanu2.jpeg" alt="Picture of a keanu" />
-		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
-		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
-		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
-		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
-		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMjE0MDY0Ml5BMl5BanBnXkFtZTgwNTI0OTcyMDI@._CR2554,398,788,788_UX402_UY402._SY201_SX201_AL_.jpg" alt="Picture of a keanu" />
-		</div>
-		<hr />
+	   </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Paul & Jun 2018</p>
+      </footer>
+    </div> <!-- /container -->
 		
     <div id = "footer">
 	<h3> Footer text </h3>
